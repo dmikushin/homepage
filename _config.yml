@@ -49,7 +49,7 @@ sass:
   style: :compressed
 highlighter: rouge
 timezone: 'Europe/Geneva'
-repository: dmikushin/homepage
+repository: dmikushin/dmikushin.github.io
 
 # Plugins (GitHub Pages only support a few)
 plugins:
