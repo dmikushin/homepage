@@ -106,5 +106,5 @@ python3 setup.py bdist_wheel
 
 Lastly, the wheel may place native libraries to an unexpected location. In this case you will be notified by a runtime error. Moving libraries to `/usr/local/lib/python3.7/site-packages/torch/lib` should resolve the issue.
 
-For the reference, here is a [PyTorch fork]({{ page.pytorch_url }}) that could be used to reproduce my experience.
+For the reference, here is a [PyTorch fork]({{ page.pytorch_fork_url }}) that could be used to reproduce my experience.
 
