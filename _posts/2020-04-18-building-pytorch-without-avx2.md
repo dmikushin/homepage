@@ -6,7 +6,7 @@ tags:
 - Software Engineering
 - PyTorch
 - AVX2
-thumbnail_path: blog/thumbs/pytorch.png
+thumbnail_path: blog/2020-04-18-building-pytorch-without-avx2/pytorch.png
 pytorch_url: "https://github.com/pytorch/pytorch"
 pytorch_fork_url: "https://github.com/dmikushin/pytorch-no-avx2-macos"
 ---
