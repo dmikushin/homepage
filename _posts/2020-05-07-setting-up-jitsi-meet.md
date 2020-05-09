@@ -11,7 +11,13 @@ pytorch_url: "https://github.com/jitsi/jitsi-meet"
 pytorch_fork_url: "https://github.com/dmikushin/jitsi-meet"
 ---
 
-Web-conferencing platforms are on the raise during these unprecedented times. While everyone is talking about serious vulnerablilities in Zoom, it makes a lot of sense to explore possible alternatives. In this post I will run through the setup of [Jitsi]({{ page.jitsi_url }}) - a Java-based technology stack for privately-held web-conferencing.
+Web-conferencing platforms are on the raise during these unprecedented times. On the other side, the vulnerablilities of Zoom and lack of privacy motivates us to explore possible alternatives. In this post I will run through the setup of [Jitsi]({{ page.jitsi_url }}) - a Java-based technology stack for privately-held web-conferencing.
+
+![alt text](\assets\img\blog\2020-05-07-setting-up-jitsi-meet\jitsi_window.jpg)
+
+In a nutshell, Jitsi is similar to Google Meet or Skype. Group meetings are organized into "rooms" with audio, video and text functionality. The principal advantage of Jitsi is platform independency. One can host an own Jitsi Meet server in a private cloud or even on the local laptop with internet address gateway. Other participants can connect to the private web-conference using the server URL.
+
+Being Java-based, Jitsi quickly saturates the available resources. One can reportedly expect one server to hold up to 30 participants.   
 
 # Server setup
 
