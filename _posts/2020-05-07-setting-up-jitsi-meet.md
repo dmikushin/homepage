@@ -15,7 +15,7 @@ Web-conferencing platforms are on the raise during these unprecedented times. On
 
 ![alt text](\assets\img\blog\2020-05-07-setting-up-jitsi-meet\jitsi_window.jpg)
 
-In a nutshell, Jitsi is similar to Google Meet or Skype. Group meetings are organized into "rooms" with audio, video and text functionality. The principal advantage of Jitsi is platform independency. One can host an own Jitsi Meet server in a private cloud or even on the local laptop with internet address gateway. Other participants can connect to the private web-conference using the server URL.
+In a nutshell, Jitsi is similar to Google Meet or Skype. Group meetings are organized into "rooms" with audio, video and text functionality. The principal advantage of Jitsi is platform independency. One can host an own Jitsi Meet server in a private cloud or even on the local laptop with internet address gateway. That is, no Microsoft, Google or Facebook being an unexpected attendee of your family dinner. Participants connect to the private web-conference using the server URL that you can distribute with a messenger.
 
 Being Java-based, Jitsi quickly saturates the available resources. One can reportedly expect one server to hold up to 30 participants.   
 
