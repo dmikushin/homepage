@@ -166,7 +166,7 @@ Rename the resulting pacakge to `jitsi-meet-unsigned.apk`.
 
 You may want to distribute Android application package from your own site as well. In order to make it available through `https://sip.your-server.org/download/jitsi-meet-unsigned.apk`, add the following lines to Nginx config:
 
-```
+```diff
 --- sip.your-server.org.conf	2020-05-10 14:14:12.950748802 +0300
 +++ sip.your-server.org.conf	2020-05-08 01:53:50.368707593 +0300
 @@ -75,6 +75,12 @@
