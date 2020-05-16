@@ -39,6 +39,10 @@ contact_urls:
     label: "Email"
     value: "dmitry@kernelgen.org"
     icon: "envelope-square"
+  cv:
+    url: "https://github.com/dmikushin/cv_mikushin/raw/master/cv_mikushin.pdf"
+    label: "CV"
+    icon: "external-link-square"
 
 # Jekyll build settings
 paginate: 10
