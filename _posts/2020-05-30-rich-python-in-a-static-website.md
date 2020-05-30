@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Setting up Jitsi Meet"
+title: "Embedding Jupyter-quailty rich visual Python into a static website"
 tags:
 - Building
 - Software Engineering
@@ -9,7 +9,7 @@ pyodide_jekyll_url: "https://github.com/dmikushin/pyodide-jekyll"
 pyodide_jekyll_published_url: "https://pyodide-jekyll.mikush.in/"
 ---
 
-We all love our CV/blog websites on GitHub Pages. We also love Jupyter notebooks for revoluting the look and feel of daily data processing. Now imagine that you can put Jupyter notebook right into your blog to showcase something without the server side? Mozilla makes it possible with their awesome [Iodide](https://iodide.io/). Actually, there is a bunch of new names here to distinguish:
+We all love our CV/blog websites hosted on GitHub Pages. We also love Jupyter notebooks for revoluting the look and feel of daily data processing. Now imagine that you can put Jupyter notebook right into your blog to showcase something without the server side? Mozilla makes it possible with their awesome [Iodide](https://iodide.io/). Actually, there is a bunch of new names here to distinguish:
 
 * **Iodide** is a client-server platform, API and UI with a server side, which authenticates you and stores the data
 * **Pyodide** is a Python interpreter along with Python modules working entirely in your client web browser by means of WebAssembly
