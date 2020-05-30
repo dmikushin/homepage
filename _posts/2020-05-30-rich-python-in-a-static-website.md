@@ -19,7 +19,7 @@ We all love our CV/blog websites hosted on GitHub Pages. We also love Jupyter no
 
 I've built a sample [GitHub repo]({{ page.pyodide_jekyll_url }}) with Jekyll-operated Iodide static client published [here]({{ page.pyodide_jekyll_published_url }}). After you press ⏩ button, the Python interpreter is being downloaded, followed by imported modules - `matplotlib` in our case. Finally, the notebook is rendered into `Report Preview` window, which can also be viewed as a whitepaper (`View as report`). So happy embedding interactive data science into your blogs!
 
-Given that Python runs entirely in your browser, it's much better than you have expected, right? Well, it's definitely doing good to some extent, unless you try to program sockets in Python in there (that's why it feels slightly impractical atm). SciPy is reportedly partially working.
+Given that Python runs entirely in your browser, it's doing much better than you have expected, right? Well, it's definitely doing good to some extent, unless you try to program sockets in Python in there (that's why it feels slightly impractical atm). SciPy is reportedly partially working.
 
 Anyway, turns out Mozilla is the new star of Data Science! Or wait: actually they still need to put LaTeX into WebAssembly as well.
 
