@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Embedding Jupyter-quailty rich visual Python into a static website"
+title: "Embedding Jupyter-quaility rich visual Python into a static website"
 tags:
 - Building
 - Software Engineering
@@ -9,7 +9,7 @@ pyodide_jekyll_url: "https://github.com/dmikushin/pyodide-jekyll"
 pyodide_jekyll_published_url: "https://pyodide-jekyll.mikush.in/"
 ---
 
-We all love our CV/blog websites hosted on GitHub Pages. We also love Jupyter notebooks for revoluting the look and feel of daily data processing. Now imagine that you can put Jupyter notebook right into your blog to showcase something without the server side? Mozilla makes it possible with their awesome [Iodide](https://iodide.io/). Actually, there is a bunch of new names here to distinguish:
+We all love our CV/blog websites hosted on GitHub Pages. We also love Jupyter notebooks for revolting the look and feel of daily data processing. Now imagine that you can put Jupyter notebook right into your blog to showcase something without the server side? Mozilla makes it possible with their awesome [Iodide](https://iodide.io/). Actually, there is a bunch of new names here to distinguish:
 
 * **Iodide** is a client-server platform, API and UI with a server side, which authenticates you and stores the data
 * **Pyodide** is a Python interpreter along with Python modules working entirely in your client web browser by means of WebAssembly
@@ -17,7 +17,7 @@ We all love our CV/blog websites hosted on GitHub Pages. We also love Jupyter no
 
 ![alt text](\assets\img\blog\2020-05-30-rich-python-in-a-static-website\pyodide_jekyll_window.png)
 
-I've built a sample [GitHub repo]({{ page.pyodide_jekyll_url }}) with Jekyll-operated Iodide static client published [here]({{ page.pyodide_jekyll_published_url }}). After you press ⏩ button, the Python interpreter is being downloaded, followed by imported modules - `matplotlib` in our case. Finally, the notebook is rendered into `Report Preview` window, which can also be viewed as a whitepaper (`View as report`). So happy embedding interactive data science into your blogs!
+I've put together a sample [GitHub repo]({{ page.pyodide_jekyll_url }}) with Jekyll-operated Iodide static client published [here]({{ page.pyodide_jekyll_published_url }}). After you press ⏩ button, the Python interpreter is being downloaded, followed by imported modules - `matplotlib` in our case. Finally, the notebook is rendered into `Report Preview` window, which can also be viewed as a whitepaper (`View as report`). So happy embedding interactive data science into your blogs!
 
 Given that Python runs entirely in your browser, it's doing much better than you have expected, right? Well, it's definitely doing good to some extent, unless you try to program sockets in Python in there (that's why it feels slightly impractical atm). SciPy is reportedly partially working.
 
