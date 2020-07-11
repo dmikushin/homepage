@@ -26,6 +26,10 @@ apcllc_github_url: "https://github.com/apc-llc"
 
 # URLs
 contact_urls:
+  telegram:
+    url: "https://t.me/mmarc"
+    label: "Telegram"
+    icon: "telegram"
   linkedin:
     url: "https://www.linkedin.com/in/dmikushin/"
     label: "LinkedIn"
