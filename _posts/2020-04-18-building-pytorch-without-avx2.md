@@ -8,7 +8,7 @@ tags:
 - AVX2
 thumbnail_path: blog/2020-04-18-building-pytorch-without-avx2/pytorch.png
 pytorch_url: "https://github.com/pytorch/pytorch"
-pytorch_fork_url: "https://github.com/dmikushin/pytorch-no-avx2-macos"
+pytorch_fork_url: "https://github.com/dmikushin/pytorch/tree/no-avx2-macos"
 ---
 
 In order to quickly explore [PyTorch]({{ page.pytorch_url }}) internals, I decided to compile and install a Debug build on my local machine. The first problem was that modern Clang surprisingly crashes on compiling Sobol RNG initial state setup, which is a very regular piece of code:
