@@ -12,12 +12,12 @@ Suppose we have a crash while compiling huge application from source, e.g. a Pyt
 ```
 PLEASE submit a bug report to https://bugs.llvm.org/ and include the crash backtrace, preprocessed source, and associated run script.
 Stack dump:
-0.	Program arguments: /opt/lvm/bin/clang-14 ...
+0.	Program arguments: /opt/llvm/bin/clang-14 ...
 ...
 Segmentation fault (core dumped)
 ```
 
-Analyzing source files with many include files is often not feasible. Instead we can deploy automatic test case reduction tools such as LLVM bugpoint or [C-Reduce](https://github.com/csmith-project/creduce). C-Reduce is actually generic, and can evaluate bugs of any compiler. But in this usecase we focus particulary on Clang.
+Analyzing source files with many include files is often not feasible. Instead, we can deploy automatic test case reduction tools such as LLVM bugpoint or [C-Reduce](https://github.com/csmith-project/creduce). C-Reduce is actually generic, and can evaluate bugs of any compiler. But in this usecase we focus particulary on Clang.
 
 ## Preparation
 
@@ -49,7 +49,7 @@ cpan -i Getopt::Tabular Regexp::Common File::Which
 Perform the build, using LLVM toolchain provided in the user-specified folder:
 
 ```
-PATH=/opt/lvm/bin:$PATH ./configure --prefix=$(pwd)/install
+PATH=/opt/llvm/bin:$PATH ./configure --prefix=$(pwd)/install
 make -j8
 make install
 ```
@@ -60,14 +60,14 @@ Prepare `bug.sh` evaluation script for C-Reduce to work on:
 
 ```
 #!/bin/sh
-/opt/lvm/bin/clang-14 -cc1 ... -O3 bug.cpp && \
-! /opt/lvm/bin/clang-14 -cc1 ... -O0 bug.cpp
+/opt/llvm/bin/clang-14 -cc1 ... -O3 bug.cpp && \
+! /opt/llvm/bin/clang-14 -cc1 ... -O0 bug.cpp
 ```
 
 In our case, build succeeds with `-O3` and fails with `-O0`, so we combine these two outcomes into a logical expression and feed it into C-Reduce, also providing the source file name for reducing:
 
 ```
-LD_LIBRARY_PATH=/opt/lvm/lib:$LD_LIBRARY_PATH creduce/install/bin/creduce bug.sh bug.cpp
+LD_LIBRARY_PATH=/opt/llvm/lib:$LD_LIBRARY_PATH creduce/install/bin/creduce bug.sh bug.cpp
 ```
 
 `LD_LIBRARY_PATH` should additionally provide the location of LLVM libs.
@@ -91,7 +91,7 @@ running 3 interestingness tests in parallel
 ===================== done ====================
 ```
 
-After several hours of work, the original ~100K lines of code has been automatically reduced to just a few lines, for example just into this small test case that crashes the compiler:
+After several hours of work, the original ~100K lines of code have been automatically reduced to just a few lines, for example just into this small test case that crashes the compiler:
 
 ```
 extern "C" __attribute__((device)) void __ockl_atomic_add_noret_f32(float *,
