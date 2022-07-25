@@ -45,7 +45,7 @@ __device__ void function(int x) { }
 
 We will also compile the same "template" Thrust code without default function into relocatable PTX assembly:
 
-```c++
+```make
 functor.ptx: functor.cu
     nvcc -g -arch=sm_35 -rdc=true -ptx -c $< -o $@
 ```
