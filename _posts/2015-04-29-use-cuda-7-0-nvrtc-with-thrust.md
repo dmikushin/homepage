@@ -47,7 +47,7 @@ We will also compile the same "template" Thrust code without default function in
 
 ```make
 functor.ptx: functor.cu
-    nvcc -g -arch=sm_35 -rdc=true -ptx -c $< -o $@
+	nvcc -g -arch=sm_35 -rdc=true -ptx -c $< -o $@
 ```
 
 The main program also contains the version of device function that shall dynamically replace the default one:
