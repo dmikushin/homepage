@@ -6,13 +6,13 @@ tags:
 thumbnail_path: blog/2015-04-29-use-cuda-7-0-nvrtc-with-thrust/nvrtc.png
 ---
 
-Rintime Compilation (NVRTC) introduced in CUDA 7.0 allows to dynamically compile CUDA kernels during program execution (see [example](http://docs.nvidia.com/cuda/nvrtc/index.html#example-saxpy)). This functionality allows to perform additional GPU code optimization/specialization, using runtime context, e.g. to substitute constant loop bounds and unroll loops, or to eliminate divergent branches known not to be visited. However, NVRTC is not fully equivalent to offline nvcc: it only compiles CUDA **device** code into PTX assembly. Thus, NVRTC is not directly usable with GPU-enabled frameworks that combine both host and device code, e.g. Thrust. In this demo we show how to use NVRTC to replace a certain device function in Thrust code.
+Runtime Compilation (NVRTC) introduced in CUDA 7.0 allows to dynamically compile CUDA kernels during program execution (see [example](http://docs.nvidia.com/cuda/nvrtc/index.html#example-saxpy)). This functionality allows to perform additional GPU code optimization/specialization, using runtime context, e.g. to substitute constant loop bounds and unroll loops, or to eliminate divergent branches known not to be visited. However, NVRTC is not fully equivalent to offline nvcc: it only compiles CUDA **device** code into PTX assembly. Thus, NVRTC is not directly usable with GPU-enabled frameworks that combine both host and device code, e.g. Thrust. In this demo we show how to use NVRTC to replace a certain device function in Thrust code.
 
 ![alt text](\assets\img\blog\2015-04-29-use-cuda-7-0-nvrtc-with-thrust\nvrtc.png "Logo Title Text 1")
 
 First of all, let's prepare a sample Thrust transform:
 
-```
+```c++
 #include
 #include <thrust/for_each.h>
 #include <thrust/device_vector.h>
@@ -39,20 +39,20 @@ void for_each()
 
 Here, we have thrust::for_each transform on vector elements, whose functor is calling external device function. For our initiali executable we will compile this code together with default function implementation:
 
-```
+```c++
 __device__ void function(int x) { }
 ```
 
 We will also compile the same "template" Thrust code without default function into relocatable PTX assembly:
 
-```
+```c++
 functor.ptx: functor.cu
     nvcc -g -arch=sm_35 -rdc=true -ptx -c $< -o $@
 ```
 
 The main program also contains the version of device function that shall dynamically replace the default one:
 
-```
+```c++
 const char* functionSource = "                                  \n\
 __device__ void function(int x)                                 \n\
 {                                                               \n\
@@ -62,7 +62,7 @@ __device__ void function(int x)                                 \n\
 
 We compile it using NVRTC and link against "template" Thrust code:
 
-```
+```c++
 // Create an instance of nvrtcProgram with the SAXPY code string.
 nvrtcProgram prog;
 NVRTC_SAFE_CALL(nvrtcCreateProgram(&prog, functionSource, "function", 0, NULL, NULL));
@@ -102,10 +102,11 @@ void* cubin;
 CUDA_SAFE_CALL(cuLinkComplete(linker, &cubin, NULL));
 CUDA_SAFE_CALL(cuModuleLoadDataEx(&module, cubin, 0, NULL, NULL));
 CUDA_SAFE_CALL(cuLinkDestroy(linker));
+```
 
 As result, CUDA module contains binary code for exactly the same Thrust source we have in initial executable, combined with the new device function. Remaining tricky part is to redirect original Thrust code kernel launches to our new module. This is done using CUDA runtime hooks:
 
-?
+```c++
 extern "C" void __cudaRegisterFunction(void** fatCubinHandle,
     const char* hostFun, char* deviceFun, const char* deviceName,
     int thread_limit, uint3* tid, uint3* bid, dim3* bDim, dim3* gDim, int* wSize)
