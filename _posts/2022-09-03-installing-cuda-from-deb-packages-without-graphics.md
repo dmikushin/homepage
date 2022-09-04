@@ -8,7 +8,9 @@ thumbnail_path: blog/2022-09-03-installing-cuda-from-deb-packages-without-graphi
 
 You may want to have your NVIDIA GPU not to be involved in any desktop rendering for many reasons. While this is the default on the headless servers, personal systems such as desktops and laptops need some further configuration. Traditional downloadable CUDA binary packages had a `--no-opengl-files` command line option, which simply skips the installation of any graphics-related components. The other installation method based on Debian packages is more favorable for system compatibility, but unfortunately lacks any option for graphics disablement. This tutorial shows how to disable desktop graphics after installing the Debian packages.
 
-1. Run the standard CUDA installation, as shown below (you may want to check for an up-to-date instruction at the [CUDA downloads page](https://developer.nvidia.com/cuda-downloads)):
+## Run the standard CUDA installation
+
+(You may want to check for an up-to-date instruction at the [CUDA downloads page](https://developer.nvidia.com/cuda-downloads).)
 
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb
@@ -23,7 +25,7 @@ Also install a package management tool called `equivs`, which we will need on a 
 sudo apt install equivs
 ```
 
-2. Uninstall graphics packages, without uninstalling what depends on them:
+## Uninstall graphics packages, without uninstalling what depends on them
 
 ```bash
 sudo dpkg -r --force-depends libnvidia-gl-515 libnvidia-gl-515:i386
@@ -45,9 +47,9 @@ E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or speci
 
 We will fix this error in the next step.
 
-3. Create dummy packages that shall replace the uninstalled official packages, and maintain APT in the consistent state:
+## Create dummy packages that shall replace the uninstalled official packages
 
-Create dummy packages configurations templates using `equivs`:
+Create dummy packages configurations templates using `equivs` to unbreak the APT state and restore the consistency of dependencies:
 
 ```bash
 equivs-control libnvidia-gl-515
