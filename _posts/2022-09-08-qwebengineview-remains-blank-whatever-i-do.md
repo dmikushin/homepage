@@ -49,5 +49,5 @@ window = Window()
 sys.exit(app.exec())
 ```
 
-<img src="blog/2022-09-08-qwebengineview-remains-blank-whatever-i-do/screenshot.png" >
+![alt text](\assets\img\blog\2022-09-08-qwebengineview-remains-blank-whatever-i-do\screenshot.png)
 
