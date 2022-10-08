@@ -30,6 +30,7 @@ git remote remove origin
 git remote add origin https://git.overleaf.com/632c23013b1a4f35618b0785
 git branch -m your_existing_work
 git checkout --orphan master
+git rm -rf .
 git pull origin master
 git rm -rf main.tex
 git commit -m "Resetting Overleaf to an empty repository"
