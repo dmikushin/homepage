@@ -22,6 +22,25 @@ sudo sed -i "s|http://.*\.archive\.ubuntu\.com/ubuntu/|mirror://mirrors.ubuntu.c
 
 Now we can run `apt update`, and enjoy the balanced use of multiple mirrors:
 
+```bash
+$ sudo apt update
+...
+Get:6 http://mirrors.ubuntu.com/mirrors.txt Mirrorlist [234 B]                                                                          
+Get:9 http://archive.ubuntu.csg.uzh.ch/ubuntu jammy-backports InRelease [99.8 kB]                                                       
+Ign:7 https://ubuntu.ch.altushost.com jammy InRelease                                                                                   
+Get:8 https://mirror.init7.net/ubuntu jammy-updates InRelease [114 kB]                                                                  
+Get:13 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [208 kB] 
+Get:14 https://mirror.init7.net/ubuntu jammy-backports/main amd64 Packages [3008 B]
+Get:19 https://mirror.init7.net/ubuntu jammy-backports/main amd64 c-n-f Metadata [272 B]                           
+Get:21 https://mirror.init7.net/ubuntu jammy-backports/universe amd64 Packages [6744 B]                                 
+Get:22 http://archive.ubuntu.csg.uzh.ch/ubuntu jammy-backports/universe i386 Packages [5200 B]                                          
+Get:28 https://mirror.init7.net/ubuntu jammy-backports/universe amd64 c-n-f Metadata [352 B]                                            
+Get:30 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [480 kB]                                                    
+Get:31 https://mirror.init7.net/ubuntu jammy-updates/main amd64 Packages [715 kB]                                                       
+Get:54 http://archive.ubuntu.csg.uzh.ch/ubuntu jammy-updates/multiverse i386 Packages [1708 B]
+...
+```
+
 Voila. In case one mirror experiences a momentum heavy usage, the operation could finish much faster.
 
 Credits go to this [askubuntu post](https://askubuntu.com/a/37754/919956).
