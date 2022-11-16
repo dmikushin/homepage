@@ -17,7 +17,7 @@ An ordinary `source.list` could be switch to `mirror://` with a simple command (
 
 ```
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo sed -i "s|http://.*\.archive\.ubuntu\.com/ubuntu/|mirror://mirrors.ubuntu.com/mirrors.txt|g" /etc/apt/sources.list
+sudo sed -i -E "s|http://.*\.archive\.ubuntu\.com/ubuntu/?|mirror://mirrors.ubuntu.com/mirrors.txt|g" /etc/apt/sources.list
 ```
 
 Now we can run `apt update`, and enjoy the balanced use of multiple mirrors:
