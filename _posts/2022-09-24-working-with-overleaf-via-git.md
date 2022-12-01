@@ -35,9 +35,9 @@ git rm -rf main.tex
 git commit -m "Resetting Overleaf to an empty repository"
 git checkout your_existing_work
 git rebase -i master
-git push origin master
 git branch -D master
 git branch -m master
+git push origin master
 ```
 
 The commands above basically rename your existing `master` branch to `your_existing_work`, then pulls a new `master` branch from Overleaf. Then we reset the state of the Overleaf's `master`, and rebase `your_existing_work` over it. Finally, the `master` branch is deleted, `your_existing_work` is renamed back to `master` and pushed to Overleaf.
