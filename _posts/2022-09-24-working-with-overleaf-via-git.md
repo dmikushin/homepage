@@ -16,7 +16,7 @@ gpg --gen-key
 pass init dmitry@kernelgen.org
 ```
 
-Now clone the Overleaf repository with Git:
+Let's now clone an Overleaf repository with Git to see how it is organized:
 
 ```
 export GCM_CREDENTIAL_STORE=gpg
@@ -29,16 +29,15 @@ Note the new Overleaf repository will always have some initial commit, and force
 git remote remove origin
 git remote add origin https://git.overleaf.com/632c23013b1a4f35618b0785
 git branch -m your_existing_work
-git checkout --orphan master
-git rm -rf .
-git pull origin master
+git fetch origin master
+git checkout master
 git rm -rf main.tex
 git commit -m "Resetting Overleaf to an empty repository"
 git checkout your_existing_work
 git rebase -i master
-git branch -d master
-git branch -m master
 git push origin master
+git branch -D master
+git branch -m master
 ```
 
 The commands above basically rename your existing `master` branch to `your_existing_work`, then pulls a new `master` branch from Overleaf. Then we reset the state of the Overleaf's `master`, and rebase `your_existing_work` over it. Finally, the `master` branch is deleted, `your_existing_work` is renamed back to `master` and pushed to Overleaf.
