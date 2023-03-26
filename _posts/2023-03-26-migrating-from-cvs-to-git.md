@@ -109,11 +109,6 @@ for ( ; $i < scalar(@authors); $i++)
         "fi \n" .
         "' --tag-name-filter cat -- --branches --tags";
 
-        #my($cmd_bash) = "cmd."
-        #open(cmdfh, '>', ) or die $!;
-        #print cmdfh "$cmd";
-        #close(cmdfh);
-
     system("$cmd");
 }
 ```
