@@ -2,7 +2,6 @@
 layout: post
 title: "Error-tolerant PostgreSQL for data rescue"
 tags:
-- Zulip
 - PostgreSQL
 thumbnail_path: blog/2023-08-21-error-tolerant-postgresql-for-data-rescue/postgresql.png
 ---
