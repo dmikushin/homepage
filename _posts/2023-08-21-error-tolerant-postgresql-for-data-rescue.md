@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "error-tolerant-postgresql-for-data-rescue"
+title: "Error-tolerant PostgreSQL for data rescue"
 tags:
 - Zulip
 - PostgreSQL
